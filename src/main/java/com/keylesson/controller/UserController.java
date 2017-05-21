@@ -52,5 +52,4 @@ public class UserController {
 		model.reset();
 		return "login";
 	}
-
 }

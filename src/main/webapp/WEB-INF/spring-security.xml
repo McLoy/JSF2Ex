@@ -33,10 +33,8 @@ http://www.springframework.org/schema/security/spring-security.xsd">
 	</beans:bean>
 
 	<beans:bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<!--<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />-->
 		<beans:property name="driverClassName" value="org.postgresql.Driver" />
 		<beans:property name="url" value="jdbc:postgresql://localhost:5432/dbusiness" />
-		<!--<beans:property name="url" value="jdbc:mysql://localhost:3306/dbusiness" />-->
 		<beans:property name="username" value="root" />
 		<beans:property name="password" value="root" />
 	</beans:bean>
