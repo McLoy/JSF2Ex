@@ -1,20 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta http-equiv="X-UA-Conpatible" content="IE=edge"/>
     <h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
-    <title>JSF Example</title>
+    <title>Example</title>
 </h:head>
-
 <h:body>
     <ui:include src="header.xhtml"/>
     <div class="navbar navbar-inverse">
@@ -25,6 +19,27 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
+                <h:form id="loginForm" prependId="false" styleClass="form-horizontal">
+                    <div class="form-group">
+                        <h:outputLabel value="Userame" styleClass="control-label col-sm-2"/>
+                        <div class="col-sm-10">
+                            <h:inputText type="text" id="j_username" name="j_username" styleClass="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel value="Password" styleClass="control-label col-sm-2"/>
+                        <div class="col-sm-10">
+                            <h:inputSecret type="password" id="j_password" name="j_password" styleClass="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <h:commandButton value="Login" type="submit" action="${userController.doLogin()}"
+                                             styleClass="btn btn-success"/>#{' '}
+                            <h:button value="Register" outcome="register" styleClass="btn btn-primary"/>
+                        </div>
+                    </div>
+                </h:form>
                 <c:if test="${param.status=='error'}">
                     <h:outputLabel style="color: red"
                                    styleClass="control-label col-sm-2">Bad credentials!!</h:outputLabel>
@@ -33,59 +48,9 @@
                     <h:outputLabel style="color: green"
                                    styleClass="control-label col-sm-2">Logged out successfully!</h:outputLabel>
                 </c:if>
-                <h:form method="POST" action="j_spring_security_check" styleClass="form-horizontal">
-                <!--<h:form method="POST" onsubmit="this.action='j_security_check';" styleClass="form-horizontal">-->
-                    <div class="form-group">
-                        <h:outputLabel value="Userame" styleClass="control-label col-sm-2"/>
-                        <div class="col-sm-10">
-                            <h:inputText type="text" name="j_username" styleClass="form-control"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <h:outputLabel value="Password" styleClass="control-label col-sm-2"/>
-                        <div class="col-sm-10">
-                            <h:inputSecret type="password" name="j_password" styleClass="form-control"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <!--<h:commandButton action="Login" value="Login" styleClass="btn btn-default"/>#{' '}-->
-
-                            <h:commandButton value="Login" type="submit" styleClass="btn btn-success"/>#{' '}
-                            <h:button value="Register" outcome="register" styleClass="btn btn-primary"/>
-                        </div>
-                    </div>
-                </h:form>
             </div>
         </div>
     </div>
-    <!--<form action="j_spring_security_check" method="POST">-->
-        <!--<h:outputLabel value="Enter UserName:" />-->
-        <!--<input type="text" name="j_username"/><br/><br/>-->
-        <!--<h:outputLabel value="Enter Password:" />-->
-        <!--<input type="password" name="j_password"/> <br/><br/>-->
-        <!--<input type="submit" value="Login"/>-->
-        <!--&lt;!&ndash;<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>&ndash;&gt;-->
-    <!--</form>-->
     <ui:include src="footer.xhtml"/>
 </h:body>
-
-<!--<body>-->
-<!--<h2>Login</h2>-->
-<!--<a style="color: #FF0000" href="#{request.contextPath}/register.xhtml"> Register</a><br/><br/>-->
-
-<!--<form method="post" action="j_spring_security_check">-->
-    <!--UserName <input type="text" name="j_username"/> <br/>-->
-    <!--Password <input type="password" name="j_password"/> <br/>-->
-    <!--<input type="submit" value="Login"/>-->
-<!--</form>-->
-
-<!--<c:if test="${param.status=='error'}">-->
-    <!--<label style="color: red">Bad credentials!!</label>-->
-<!--</c:if>-->
-<!--<c:if test="${param.status=='logout'}">-->
-    <!--<label style="color: green">Logged out successfully!</label>-->
-<!--</c:if>-->
-
-<!--</body>-->
 </html>

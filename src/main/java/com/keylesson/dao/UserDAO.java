@@ -33,4 +33,5 @@ public class UserDAO {
 		user.getRoles().add("ROLE_USER");
 		sessionFactory.getCurrentSession().save(user);
 	}
+
 }

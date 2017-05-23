@@ -27,6 +27,11 @@
 	<filter-mapping>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>
+
+		<!--************-->
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>REQUEST</dispatcher>
+		<!--************-->
 	</filter-mapping>
 
 	<listener>
@@ -45,3 +50,42 @@
 	<session-config>
 		<session-timeout>1</session-timeout> </session-config>
 </web-app>
+
+<!--<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+		 <!--xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"-->
+		 <!--xsi:schemaLocation="http://java.sun.com/xml/ns/javaee-->
+	<!--http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"-->
+		 <!--id="WebApp_ID" version="2.5" metadata-complete="true">-->
+	<!--<servlet>-->
+		<!--<servlet-name>Faces Servlet</servlet-name>-->
+		<!--<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>-->
+		<!--<load-on-startup>1</load-on-startup>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>Faces Servlet</servlet-name>-->
+		<!--<url-pattern>/faces/*</url-pattern>-->
+	<!--</servlet-mapping>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>Faces Servlet</servlet-name>-->
+		<!--<url-pattern>*.xhtml</url-pattern>-->
+	<!--</servlet-mapping>-->
+	<!--<context-param>-->
+		<!--<description>State saving method: 'client' or 'server' (=default). See JSF Specification 2.5.2</description>-->
+		<!--<param-name>javax.faces.STATE_SAVING_METHOD</param-name>-->
+		<!--<param-value>client</param-value>-->
+	<!--</context-param>-->
+	<!--<listener>-->
+		<!--<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
+	<!--</listener>-->
+	<!--<listener>-->
+		<!--<listener-class>com.sun.faces.config.ConfigureListener</listener-class>-->
+	<!--</listener>-->
+
+	<!--<context-param>-->
+	<!--<param-name>contextConfigLocation</param-name>-->
+	<!--<param-value>/WEB-INF/spring-security.xml, /WEB-INF/spring-hibernate.xml</param-value>-->
+	<!--&lt;!&ndash;<param-value>/WEB-INF/spring-security.xml</param-value>&ndash;&gt;-->
+	<!--</context-param>-->
+	<!--<session-config>-->
+	<!--<session-timeout>1</session-timeout> </session-config>-->
+<!--</web-app>-->
