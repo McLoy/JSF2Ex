@@ -41,6 +41,14 @@ public class User implements UserDetails{
 		this.login = login;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getPwd() {
 		return pwd;
 	}
@@ -63,14 +71,6 @@ public class User implements UserDetails{
 
 	public void setRoles(Set<String> roles) {
 		this.roles = roles;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public Collection<? extends GrantedAuthority> getAuthorities() {

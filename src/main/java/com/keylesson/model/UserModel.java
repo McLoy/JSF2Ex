@@ -3,11 +3,13 @@ package com.keylesson.model;
 public class UserModel {
 
 	private String login;
+	private String name;
 	private String pwd;
 	private String pwdConfirm;
 
 	public void reset() {
 		this.login = null;
+		this.name = null;
 		this.pwd = null;
 		this.pwdConfirm = null;
 	}
@@ -18,6 +20,14 @@ public class UserModel {
 
 	public void setLogin(String login) {
 		this.login = login;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getPwd() {

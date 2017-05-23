@@ -1,54 +1,39 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:c="http://java.sun.com/jstl/core"
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
     <h:outputStylesheet library="bootstrap" name="css/bootstrap.min.css"></h:outputStylesheet>
+    <link rel="stylesheet" href="resources/bootstrap/css/main.css"/>
     <title>Login</title>
 </h:head>
 <h:body>
     <ui:include src="header.xhtml"/>
-    <div class="navbar navbar-inverse">
-        <div class="navbar-brand">
-            LOGIN
-        </div>
-    </div>
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-                <h:form id="loginForm" prependId="false" styleClass="form-horizontal">
-
-                    <div class="form-group">
-                        <h:outputLabel value="Userame" styleClass="control-label col-sm-2"/>
-                        <div class="col-sm-10">
-                            <h:inputText type="text" id="j_username" name="j_username" styleClass="form-control"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <h:outputLabel value="Password" styleClass="control-label col-sm-2"/>
-                        <div class="col-sm-10">
-                            <h:inputSecret type="password" id="j_password" name="j_password" styleClass="form-control"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
+            <div class="col-sm-6 col-md-4 col-md-offset-4">
+                <img src="images/logo.png" height="52" width="175" alt="Logo"/>
+                <h1 class="text-left login-title">User login</h1>
+                <div class="account-wall">
+                    <h:form id="loginForm" prependId="false" styleClass="form-signin">
+                            <h:inputText a:placeholder="Username" type="text" id="j_username" name="j_username" styleClass="form-control"/>
+                            <h:inputSecret a:placeholder="Password" type="password" id="j_password" name="j_password" styleClass="form-control"/>
                             <h:commandButton value="Login" type="submit" action="${userController.doLogin()}" oncomplete="handleLoginRequest(xhr, status, args)"
-                                             styleClass="btn btn-success"/>#{' '}
-                            <h:button value="Register" outcome="register" styleClass="btn btn-primary"/>
-                        </div>
-                    </div>
-                </h:form>
+                                             styleClass="btn btn-lg btn-primary btn-block"/>#{' '}
+                        <a href="register.xhtml" class="pull-right need-help">Create an account </a><span class="clearfix"></span>
+                    </h:form>
 
+                </div>
                 <c:if test="${param.status=='error'}">
                     <h:outputLabel style="color: red"
-                                   styleClass="control-label col-sm-2">Bad credentials!!</h:outputLabel>
+                                   styleClass="control-label">Bad credentials!!</h:outputLabel>
                 </c:if>
                 <c:if test="${param.status=='logout'}">
                     <h:outputLabel style="color: green"
-                                   styleClass="control-label col-sm-2">Logged out successfully!</h:outputLabel>
+                                   styleClass="control-label">Logged out successfully!</h:outputLabel>
                 </c:if>
             </div>
         </div>
@@ -56,5 +41,3 @@
     <ui:include src="footer.xhtml"/>
 </h:body>
 </html>
-
-

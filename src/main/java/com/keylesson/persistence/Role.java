@@ -1,12 +1,7 @@
 package com.keylesson.persistence;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
-
 import javax.persistence.*;
 
-//@Entity
-//@Table(name = "role_table")
 public class Role {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,8 +9,6 @@ public class Role {
 	private int roleId;
 	private String code;
 	private String label;
-//	@ManyToOne(fetch = FetchType.LAZY, optional = true)
-//	@JoinTable(name = "user_table", joinColumns = @JoinColumn(name = "role_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
@@ -52,9 +45,9 @@ public class Role {
 		this.user = user;
 	}
 
-	public static void main(String[] args) {
-		ApplicationContext ctx = new FileSystemXmlApplicationContext("/home/user/Dev/Java_projects/TestTasks/JSF/JSFEx/src/main/webapp/WEB-INF/spring-security.xml");
-//		UserDAO bean = ctx.getBean(UserDAO.class);
-		System.out.println();
-	}
+//	public static void main(String[] args) {
+//		ApplicationContext ctx = new FileSystemXmlApplicationContext("/home/user/Dev/Java_projects/TestTasks/JSF/JSFEx/src/main/webapp/WEB-INF/spring-security.xml");
+////		UserDAO bean = ctx.getBean(UserDAO.class);
+//		System.out.println();
+//	}
 }

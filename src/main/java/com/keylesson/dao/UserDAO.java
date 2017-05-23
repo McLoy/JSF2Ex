@@ -27,6 +27,7 @@ public class UserDAO {
 	public void addUser(UserModel model) {
 		User user = new User();
 		user.setLogin(model.getLogin());
+		user.setName(model.getName());
 		String pwd = encoder.encode(model.getPwd());
 		user.setPwd(pwd);
 		user.setEnabled(true);

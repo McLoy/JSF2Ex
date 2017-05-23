@@ -17,6 +17,12 @@
 					</td>
 				</tr>
 				<tr>
+					<td>Name <h:outputLabel value="(*)" style="color:#F00707;" /></td>
+					<td>
+						<h:inputText value="#{userController.model.name}" required="true" label="Name"/>
+					</td>
+				</tr>
+				<tr>
 					<td>Password <h:outputLabel value="(*)" style="color:#F00707;" /></td>
 					<td>
 						<h:inputSecret value="#{userController.model.pwd}" label="Password" redisplay="true" required="true">

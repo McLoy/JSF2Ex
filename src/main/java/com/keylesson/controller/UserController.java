@@ -14,6 +14,7 @@ import javax.faces.event.PhaseEvent;
 import javax.faces.event.PhaseId;
 import javax.faces.event.PhaseListener;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
@@ -22,6 +23,7 @@ import java.io.IOException;
 
 @ManagedBean
 @RequestScoped
+@Named
 public class UserController implements PhaseListener{
 
 	@Inject
