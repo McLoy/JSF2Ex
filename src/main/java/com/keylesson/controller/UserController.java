@@ -21,7 +21,6 @@ import javax.servlet.ServletResponse;
 import java.io.IOException;
 
 @ManagedBean
-//@Named
 @RequestScoped
 public class UserController implements PhaseListener{
 
@@ -41,9 +40,6 @@ public class UserController implements PhaseListener{
 		this.model = model;
 	}
 
-	/**
-	 * @return
-	 */
 	public String register() {
 		try {
 			if (!model.getPwd().equals(model.getPwdConfirm())) {
@@ -82,17 +78,11 @@ public class UserController implements PhaseListener{
 	public void afterPhase(PhaseEvent event) {
 	}
 
-	/* (non-Javadoc)
-     * @see javax.faces.event.PhaseListener#beforePhase(javax.faces.event.PhaseEvent)
-     *
-     * Do something before rendering phase.
-     */
 	public void beforePhase(PhaseEvent event) {
 		Exception e = (Exception) FacesContext.getCurrentInstance().
 				getExternalContext().getSessionMap().get(WebAttributes.AUTHENTICATION_EXCEPTION);
 
 		if (e instanceof BadCredentialsException) {
-//			logger.debug("Found exception in session map: "+e);
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put(
 					WebAttributes.AUTHENTICATION_EXCEPTION, null);
 			FacesContext.getCurrentInstance().addMessage(null,
@@ -101,11 +91,6 @@ public class UserController implements PhaseListener{
 		}
 	}
 
-	/* (non-Javadoc)
-     * @see javax.faces.event.PhaseListener#getPhaseId()
-     *
-     * In which phase you want to interfere?
-     */
 	public PhaseId getPhaseId() {
 		return PhaseId.RENDER_RESPONSE;
 	}
